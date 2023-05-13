@@ -14,8 +14,16 @@ export default function App() {
   const [formErrer, setError] = useState('');
 
   function mapItems({item}){
+    function removeTask(){
+      console.log(item.id);
+    }
+
     return (
-      <Text>{item.subject} : {item.content}</Text>
+      <View style={sectionStyles.task}>
+        <Text style={textStyles.taskText}>{item.subject} : {item.content}</Text>
+        { /* <Button title='Remove Task' style={sectionStyles.deleteButton} onPress={removeTask} /> */ }
+        <Text onPress={removeTask} style={sectionStyles.deleteButton}>Remove Task</Text>
+      </View>
     )
   }
 
@@ -55,9 +63,9 @@ export default function App() {
         {/* Content */}
         <View style={sectionStyles.form}>
           {/* Form */}
-          <Text style={textStyles.formTags}>Subject</Text>
+          <Text style={textStyles.formText}>Subject</Text>
           <TextInput onChangeText={changeSubject} value={subject} style={inputStyles.textInput} />
-          <Text style={textStyles.formTags}>Content</Text>
+          <Text style={textStyles.formText}>Content</Text>
           <TextInput onChangeText={changeContent} value={content} style={inputStyles.textInput} />
           <Button title='Create New Task' onPress={submitNewTodo} />
           <Text>{formErrer}</Text>
@@ -72,6 +80,7 @@ const sectionStyles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     alignItems: 'center',
+    display:'flex',
   },
   header:{
     justifyContent: 'center',
@@ -92,6 +101,30 @@ const sectionStyles = StyleSheet.create({
   },
   list:{
     backgroundColor: '#F0A8BC',
+  },
+  task:{
+    alignSelf:'center',
+    margin:25,
+    backgroundColor: '#A8BAF0',
+    borderStyle:'dotted',
+    borderColor:'#A8BAF0',
+    borderRadius:50,
+    borderWidth:25,
+  },
+  deleteButton:{
+    borderRadius:5,
+    borderWidth:3,
+    borderStyle:'solid',
+    borderColor:'#374AEC',
+    color:'#F0A8BC',
+    backgroundColor:'#374AEC',
+    fontWeight:'bold',
+    fontSize:11,
+    margin:3,
+    marginLeft:75,
+    alignContent:'center',
+    alignSelf:'center',
+    alignItems:'center',
   }
 });
 
@@ -100,11 +133,15 @@ const textStyles = StyleSheet.create({
     fontSize: 22,
     color: '#350047'
   },
-  formTags:{
+  formText:{
     fontSize: 20,
     fontWeight: 'bold',
     alignSelf:'center'
-  }
+  },
+  taskText:{
+    fontSize:15,
+    color: '#B20031'
+  },
 });
 
 const inputStyles = StyleSheet.create({
