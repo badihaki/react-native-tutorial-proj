@@ -7,7 +7,32 @@ export default function App() {
       id:0,
       subject:'To-Do List',
       content:'Finish the list'
-    }
+    },
+    {
+      id:1,
+      subject:'Grocery',
+      content:'Go grab some groceries'
+    },
+    {
+      id:2,
+      subject:'Delete Button',
+      content:'Make Delete Button'
+    },
+    {
+      id:3,
+      subject:'Code',
+      content:'Practice coding'
+    },
+    {
+      id:4,
+      subject:'Draw',
+      content:'Practice Drawings'
+    },
+    {
+      id:5,
+      subject:'CSS',
+      content:'Fix the CSS'
+    },
   ])
   const [subject, changeSubject] = useState('');
   const [content, changeContent] = useState('');
@@ -89,7 +114,7 @@ const sectionStyles = StyleSheet.create({
     backgroundColor: '#DFF5F7',
     borderStyle:'solid',
     borderRadius:50,
-    borderColor: '#560C66'
+    borderColor: '#560C66',
   },
   content:{
     alignContent:'center',
@@ -101,6 +126,8 @@ const sectionStyles = StyleSheet.create({
   },
   list:{
     backgroundColor: '#F0A8BC',
+    marginBottom:50,
+    flex:2
   },
   task:{
     alignSelf:'center',
